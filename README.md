@@ -12,6 +12,9 @@ Prerequisites
 Author
 - Tori Olley
 
+APIS
+- OMDB
+- Axios
 
 
 
