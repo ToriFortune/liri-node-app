@@ -8,7 +8,8 @@
 // });
 // need to create spotify, ticket master js files 
 
-
+// const spotify = new Spotify(keys.spotify);
+// console.log ("keys");
 // require config
 require("dotenv").config();
 const keys = require("./keys");
