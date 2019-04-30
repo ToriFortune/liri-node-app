@@ -11,10 +11,42 @@
 
 // require config
 require("dotenv").config();
-
+const keys = require("./keys");
 // data from file system
-var fs =require ("fs");
-// spotify.js file to be created
-var spotify = require("./spotify.js");
+const fs =require ("fs");
+// spotify function to be exported from spotify.js
+// const spotify = require("./spotify.js");
 // ticketmaster.js file to be created
-var ticketMaster = require("./ticketMaster")
+// const ticketMaster = require("./ticketMaster")
+var Spotify = require('node-spotify-api');
+ 
+const spotify = new Spotify(keys.spotify);
+const apiKey = keys.ticketmaster.key;
+
+
+function getEvents(artist) {
+    console.log(`Artist: ${artist}`) 
+}
+
+const command = process.argv[2];
+const value = process.argv[3];
+
+switch (command) {
+    case "search-concerts":
+        getEvents(value);
+        break;
+    case "search-songs":
+        getSongs();
+        break;
+    case "search-movies":
+        getMovies();
+        break;
+    case "feeling-lucky":
+        lucky();
+        break;
+    default:
+        console.log("Please enter a valid command");
+
+}
+
+console.log("loaded")
