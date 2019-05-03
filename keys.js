@@ -6,3 +6,6 @@ exports.spotify = {
 exports.ticketmaster ={
 key: process.env.TICKET_MASTER_KEY
 }
+exports.omdb ={
+    key: process.env.omdb_key
+}

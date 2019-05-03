@@ -19,10 +19,11 @@ const fs =require ("fs");
 // const spotify = require("./spotify.js");
 // ticketmaster.js file to be created
 // const ticketMaster = require("./ticketMaster")
-var Spotify = require('node-spotify-api');
+const Spotify = require('node-spotify-api');
  
 const spotify = new Spotify(keys.spotify);
 const apiKey = keys.ticketmaster.key;
+const omdb =
 
 
 function getEvents(artist) {
@@ -46,8 +47,11 @@ switch (command) {
         lucky();
         break;
     default:
-        console.log("Please enter a valid command");
+        console.log("The Sign by Ace of Base.");
 
 }
 
 console.log("loaded")
+
+
+const TicketMaster = require('node-ticketmaster-api');
