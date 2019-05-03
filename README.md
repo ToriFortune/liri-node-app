@@ -16,7 +16,7 @@ APIS
 - OMDB
 - Axios
 - TicketMaster
-- 
+- Spotify
 
 
 
