@@ -23,7 +23,8 @@ Steps taken
 - Created keys.js file
 - Created .env file for safegaurding keys and secrets
 - Created liri.js file and installed dotenv, fs, node spotify 
-- 
+- Declared command line variables; command and criteria
+- Used switch statment for concert-search, movie-search, omdb and lucky
 
 
 
