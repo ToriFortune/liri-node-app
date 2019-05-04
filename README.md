@@ -18,7 +18,12 @@ APIS
 - TicketMaster
 - Spotify
 
-
+Steps taken
+- Initialized package.json "npm init-y"
+- Created keys.js file
+- Created .env file for safegaurding keys and secrets
+- Created liri.js file and installed dotenv, fs, node spotify 
+- 
 
 
 
