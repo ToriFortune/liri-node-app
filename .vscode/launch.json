@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Liri",
             "program": "${workspaceFolder}\\liri.js",
-            "args": ["search-concerts", "Madonna"]
+            "args": ["search-song", "bodak yellow"]
         }
     ]
 }

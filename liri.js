@@ -15,68 +15,75 @@ require("dotenv").config();
 const keys = require("./keys");
 // data from file system
 const fs =require ("fs");
-const axios =require("axios");
-
+var axios =require("axios");
+const ticketMaster=("./ticketMaster")
+const moment =require("moment")
 // spotify function to be exported from spotify.js
 // const spotify = require("./spotify.js");
 // ticketmaster.js file to be created
 // const ticketMaster = require("./ticketMaster")
 const Spotify = require('node-spotify-api');
  
-let spotify = new Spotify(keys.spotify);
-const ticketMaster = keys.ticketmaster.key;
+const spotify = new Spotify(keys.spotify);
+const apiKey = keys.ticketmaster.key;
 
 
-console.log(ticketMaster);
 
+// console.log(ticketMaster);
+// nodeArg =process.argv [0]
 const command = process.argv[2];
-const value = process.argv[3];
+const criteria = process.argv[3];
 
-function getEvents(artist) {
-    console.log(`Artist: ${artist}`) 
-}
-
-
-fs.appendFile("random.txt", command + ",", function(err){
-    if (err) throw err;
-});
 
 switch (command) {
     case "search-concerts":
-        getEvents(value);
+        getEvents(criteria);
         break;
     case "search-songs":  // search spotify
-        getSongs();
+        getSongs(criteria);
         break;
     case "search-movies": // search omdb for movies
-        getMovies();
+        getMovies(criteria);
         break;
     case "feeling-lucky":
-        lucky();
+        luckyRandom(criteria);
         break;
     default:
         console.log("The Sign by Ace of Base.");
+    };
 
-// }
-// function getMovies(movies){
-//     var queryUrl = 
-// };
 
-// create a function to call for songs
-function getSongs (songs){
-    spotify
-    .search({type: "track", query: "song"})
-    .then(function(response){
-        if (response.track===0){
-          console.log("No results found");
-                  }
-                  else{
-                      ccnsole.log("Artist" +response.track.item[0].artist[0].name);
-                 console.log("Track: " + response.tracks.items[0].name);
-                console.log("Preview URL: " + response.tracks.items[0].preview_url);
-                console.log("Album: " + response.tracks.items[0].album.name);
+
+    function getMovies(criteria) {
+        if (!criteria) {
+            criteria = "Mr. Nobody";
+        }
+        axios.get("http://www.omdbapi.com/?t=" + criteria + "&apikey=trilogy").then(
+            function(response) {
+                console.log("Title: " + response.data.Title);
+                console.log("Year: " + response.data.Year);
+                console.log("IMDB Rating: " + response.data.imdbRating);
+                console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].criteria);
+                console.log("Country: " + response.data.Country);
+                console.log("Language: " + response.data.Language);
+                console.log("Plot: " + response.data.Plot);
+                console.log("Actors: " + response.data.Actors);
             }
-    })
-}
+        );
+    };
+    
 
-const TicketMaster = require('node-ticketmaster-api');
+
+
+function luckyRandom(){
+    fs.readFile("random.txt", "utf8", function (error, data){
+        if (error){
+            return console.log(error);
+        };
+
+        var dataArray = data.split(",");
+
+
+
+
+        
