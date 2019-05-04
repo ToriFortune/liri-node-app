@@ -84,6 +84,3 @@ function luckyRandom(){
         var dataArray = data.split(",");
 
 
-
-
-        
